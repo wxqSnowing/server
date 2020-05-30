@@ -12,6 +12,7 @@ var userRouter = require('./routes/user');
 //start---
 var searchRouter = require('./routes/search');
 var siderRouter = require('./routes/sider');
+var workRouter = require('./routes/work');
 
 var app = express();
 
@@ -30,8 +31,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/', usersRouter);
 app.use('/', userRouter);
+//start
 app.use('/', searchRouter);
 app.use('/', siderRouter);
+app.use('/', workRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
