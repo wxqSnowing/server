@@ -48,7 +48,7 @@ router.post('/api/add_work', function(req, res, next) {
         if (typeof(success) != 'undefined') {
             let responsedata = {
                 status: 200,
-                message: "新增数据成功",
+                message: "作品发布成功",
                 success: true,
                 data: success
             }
