@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-let { queryWork } = require("../dao/works/works_dao.js"); // 数据库操作
+let { queryWork, insertWork } = require("../dao/works/works_dao.js"); // 数据库操作
 
 // 获取指定用户信息 get请求
 router.get('/api/get_work_info', function(req, res, next) {
@@ -30,5 +30,34 @@ router.get('/api/get_work_info', function(req, res, next) {
 
     })
 });
+
+//新增作品
+router.post('/api/add_work', function(req, res, next) {
+    // title, type, subtype, tags, content, image
+    let urlParam = {
+        uid: parseInt(req.body.uid),
+        title: req.body.title,
+        type: req.body.type,
+        subtype: req.body.subtype,
+        tags: req.body.tags,
+        content: req.body.content,
+        image: req.body.image,
+    };
+
+    insertWork(urlParam, function(success) {
+        if (typeof(success) != 'undefined') {
+            let responsedata = {
+                status: 200,
+                message: "新增数据成功",
+                success: true,
+                data: success
+            }
+            res.json(responsedata);
+        }
+    })
+});
+
+
+
 
 module.exports = router;
