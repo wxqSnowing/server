@@ -1,11 +1,31 @@
 let { pool } = require("../../conf/mysqlConf.js")
-let { queryWorkSQL, insertWorkSQL } = require('./work_sql.js')
+let { queryWorkSQL, insertWorkSQL, rankWorkSQL, recommendWorkSQL } = require('./work_sql.js')
 
 module.exports = {
-    queryWork: function(params, callback) { // 查询
+    queryWork: function(params, callback) { // 查询 createtime
         let { type } = params;
         let sqlparam = [type];
         pool.query(queryWorkSQL, sqlparam, function(error, result) {
+            if (error)
+                throw error;
+            callback(result);
+        });
+    },
+
+    queryRankWork: function(params, callback) { // 排行查询hotscore
+        let { type } = params;
+        let sqlparam = [type];
+        pool.query(rankWorkSQL, sqlparam, function(error, result) {
+            if (error)
+                throw error;
+            callback(result);
+        });
+    },
+
+    queryRecommendWork: function(params, callback) { // 排行查询hotscore
+        let { type } = params;
+        let sqlparam = [type];
+        pool.query(recommendWorkSQL, sqlparam, function(error, result) {
             if (error)
                 throw error;
             callback(result);
