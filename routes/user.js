@@ -8,7 +8,6 @@ router.get('/api/queryUser', function(req, res, next) {
     let urlParam = {
         uid: req.query.uid
     };
-    console.log(urlParam);
     query(urlParam, function(success) {
         let value = JSON.parse(JSON.stringify(success));
         let responsedata = {
