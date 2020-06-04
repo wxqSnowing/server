@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-let { queryWork, insertWork, queryRankWork, queryRecommendWork, queryMineWork, queryWorkByWorkId } = require("../dao/works/works_dao.js"); // 数据库操作
+let { queryWork, insertWork, queryRankWork, queryRecommendWork, queryMineWork, queryWorkByWorkId, delteWorkByWorkId } = require("../dao/works/works_dao.js"); // 数据库操作
 
 
 // 获取指定用户信息 get请求
@@ -56,6 +56,26 @@ router.get('/api/get_work_detail_by_id', function(req, res, next) {
             res.json(responsedata);
         }
 
+    })
+});
+
+//
+router.get('/api/delte_work_by_id', function(req, res, next) {
+    let urlParam = {
+        workid: req.query.workid
+    };
+    delteWorkByWorkId(urlParam, function(success) {
+        if (typeof(success) != 'undefined') {
+            let value = JSON.parse(JSON.stringify(success));
+            console.log('~~~~~~~~~~~~~~~', value);
+            let responsedata = {
+                status: 200,
+                message: "数据删除成功",
+                success: true,
+                data: value
+            }
+            res.json(responsedata);
+        }
     })
 });
 

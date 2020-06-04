@@ -7,4 +7,5 @@ module.exports = {
     mineWorkSQL: "select * from work_info where uid = ? limit 5",
     insertWorkSQL: "insert into work_info (uid, title, type, subtype, tags, content, image) values (?, ?, ?, ?, ?, ?, ?);",
     queryWorkByWorkIdSQL: "select * from work_info where workid = ?;",
+    delteWorkByWorkIdSQL: "delete from work_info where workid = ?;",
 }
