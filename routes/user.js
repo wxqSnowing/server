@@ -41,7 +41,7 @@ router.post('/api/add_user', function(req, res, next) {
 });
 
 // 获取指定用户信息 get请求
-router.put('/api/update_user', function(req, res, next) {
+router.put('/api/update_user_pwd', function(req, res, next) {
     let urlParam = {
         pwd: req.query.pwd,
         uid: req.query.uid
