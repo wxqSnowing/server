@@ -193,9 +193,9 @@ router.post('/api/add_work', function(req, res, next) {
 //通过oss上传封面图，其中遇到的问题是:上传后打开链接是下载，需要设置headers，client.put方法调用时使用
 let OSS = require('ali-oss');
 let client = new OSS({
-    region: 'oss-cn-beijing',
-    accessKeyId: 'LTAI4G228rmk35WXbx4drEnw',
-    accessKeySecret: '3EdlbZZ76BEzZvoXXbfp9swy2Ork5G',
+    region: 'xxx',
+    accessKeyId: 'xxx',
+    accessKeySecret: 'xxx',
     bucket: 'image-bucket-6',
 });
 
