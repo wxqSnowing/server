@@ -2,4 +2,5 @@
 
 module.exports = {
     queryWorkCommentSQL: "SELECT * FROM work_comment_info where workid = ?;",
+    addWorkCommentSQL: "insert into work_comment_info (workid, uid, comment) value (?, ?, ?);",
 }
