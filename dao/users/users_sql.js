@@ -2,4 +2,5 @@
 
 module.exports = {
     queryUserSQL: "SELECT * FROM user_info where uid = ?;",
+    addUserSQL: "insert into user_info (username, pwd) value (?, ?);"
 }
