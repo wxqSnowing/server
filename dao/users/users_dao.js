@@ -1,5 +1,5 @@
 let { pool } = require("../../conf/mysqlConf.js")
-let { queryUserSQL, addUserSQL, updateUserPwdSQL, updateUserBasicInfoSQL } = require('./users_sql.js')
+let { queryUserSQL, addUserSQL, updateUserPwdSQL, updateUserBasicInfoSQL, loginUserCheckSQL } = require('./users_sql.js')
 
 module.exports = {
     queryUser: function(params, callback) { // users表中查询指定user操作
@@ -18,6 +18,18 @@ module.exports = {
             params.pwd ? params.pwd : "",
         ];
         pool.query(addUserSQL, sqlparam, function(error, result) {
+            if (error)
+                throw error;
+            callback(result);
+        });
+    },
+
+    loginUserCheck: function(params, callback) { // users表中查询指定user操作
+        let sqlparam = [
+            params.username ? params.username : "",
+            params.pwd ? params.pwd : "",
+        ];
+        pool.query(loginUserCheckSQL, sqlparam, function(error, result) {
             if (error)
                 throw error;
             callback(result);
