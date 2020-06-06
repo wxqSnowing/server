@@ -33,7 +33,7 @@ router.post('/api/add_comment', function(req, res, next) {
         if (typeof(success) != 'undefined') {
             let responsedata = {
                 status: 200,
-                message: "作品发布成功",
+                message: "评论发布成功",
                 success: true,
                 data: success
             }
