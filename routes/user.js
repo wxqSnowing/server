@@ -39,7 +39,7 @@ router.get('/api/login', function(req, res, next) {
         } else {
             let responsedata = {
                 status: 200,
-                message: "数据获取成功",
+                message: "登录成功",
                 success: true,
                 data: value
             }
