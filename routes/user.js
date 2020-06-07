@@ -53,7 +53,10 @@ router.get('/api/login', function(req, res, next) {
 router.post('/api/add_user', function(req, res, next) {
     let urlParam = {
         username: req.query.username,
-        pwd: req.query.pwd
+        pwd: req.query.pwd,
+        email: req.query.email,
+        mobile: req.query.mobile,
+
     };
     addUser(urlParam, function(success) {
         console.log(success)

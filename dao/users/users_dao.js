@@ -16,6 +16,8 @@ module.exports = {
         let sqlparam = [
             params.username ? params.username : "",
             params.pwd ? params.pwd : "",
+            params.email ? params.email : "",
+            params.mobile ? params.mobile : "",
         ];
         pool.query(addUserSQL, sqlparam, function(error, result) {
             if (error)
