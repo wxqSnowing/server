@@ -51,13 +51,17 @@ router.get('/api/login', function(req, res, next) {
 
 // 获取指定用户信息 get请求
 router.post('/api/add_user', function(req, res, next) {
+    console.log(req, '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`');
+
     let urlParam = {
-        username: req.query.username,
-        pwd: req.query.pwd,
-        email: req.query.email,
-        mobile: req.query.mobile,
+        username: req.body.username,
+        pwd: req.body.pwd,
+        email: req.body.email,
+        mobile: req.body.mobile,
 
     };
+    console.log('-------', req.query, '-------');
+
     addUser(urlParam, function(success) {
         console.log(success)
         if (typeof(success) != 'undefined') {
