@@ -63,7 +63,7 @@ router.post('/api/add_user', function(req, res, next) {
         if (typeof(success) != 'undefined') {
             let responsedata = {
                 status: 200,
-                message: "增加用户成功",
+                message: "注册成功，您可以登录了",
                 success: true,
                 data: success
             }
