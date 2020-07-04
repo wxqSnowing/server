@@ -174,6 +174,7 @@ router.post('/api/add_work', function(req, res, next) {
         tags: req.body.tags,
         content: req.body.content,
         image: req.body.image,
+        description: req.body.description,
     };
 
     insertWork(urlParam, function(success) {

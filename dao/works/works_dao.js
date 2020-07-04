@@ -73,6 +73,7 @@ module.exports = {
             work.tags ? work.tags : "",
             work.content ? work.content : "",
             work.image ? work.image : "",
+            work.description ? work.description : ""
         ];
         pool.query(insertWorkSQL, sqlparam, function(error, result) {
             if (error)
