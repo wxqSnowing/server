@@ -7,7 +7,8 @@ let { queryWork, insertWork, queryRankWork, queryRecommendWork, queryMineWork, q
 // 获取指定用户信息 get请求
 router.get('/api/get_work_info', function(req, res, next) {
     let urlParam = {
-        type: req.query.type
+        type: req.query.type,
+        querycount: parseInt(req.query.querycount)
     };
     queryWork(urlParam, function(success) {
         if (typeof(success) != 'undefined') {
@@ -109,7 +110,8 @@ router.get('/api/get_mine_work', function(req, res, next) {
 // 获取ranks信息 get请求
 router.get('/api/get_work_info_by_rank', function(req, res, next) {
     let urlParam = {
-        type: req.query.type
+        type: req.query.type,
+        querycount: parseInt(req.query.querycount)
     };
     queryRankWork(urlParam, function(success) {
         if (typeof(success) != 'undefined') {
@@ -137,7 +139,8 @@ router.get('/api/get_work_info_by_rank', function(req, res, next) {
 // 获取ranks信息 get请求
 router.get('/api/get_work_info_by_recommend', function(req, res, next) {
     let urlParam = {
-        type: req.query.type
+        type: req.query.type,
+        querycount: parseInt(req.query.querycount)
     };
     queryRecommendWork(urlParam, function(success) {
         if (typeof(success) != 'undefined') {

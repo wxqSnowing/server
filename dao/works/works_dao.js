@@ -3,8 +3,8 @@ let { queryWorkSQL, insertWorkSQL, rankWorkSQL, recommendWorkSQL, mineWorkSQL, q
 
 module.exports = {
     queryWork: function(params, callback) { // 查询 createtime
-        let { type } = params;
-        let sqlparam = [type];
+        let { type, querycount } = params;
+        let sqlparam = [type, querycount];
         pool.query(queryWorkSQL, sqlparam, function(error, result) {
             if (error)
                 throw error;
@@ -28,8 +28,8 @@ module.exports = {
     },
 
     delteWorkByWorkId: function(params, callback) { // 查询 by workid
-        let { workid } = params;
-        let sqlparam = [workid];
+        let { workid, querycount } = params;
+        let sqlparam = [workid, querycount];
         pool.query(delteWorkByWorkIdSQL, sqlparam, function(error, result) {
             if (error)
                 throw error;
@@ -39,8 +39,8 @@ module.exports = {
 
 
     queryRankWork: function(params, callback) { // 排行查询hotscore
-        let { type } = params;
-        let sqlparam = [type];
+        let { type, querycount } = params;
+        let sqlparam = [type, querycount];
         pool.query(rankWorkSQL, sqlparam, function(error, result) {
             if (error)
                 throw error;
@@ -49,8 +49,8 @@ module.exports = {
     },
 
     queryRecommendWork: function(params, callback) { // 排行查询hotscore
-        let { type } = params;
-        let sqlparam = [type];
+        let { type, querycount } = params;
+        let sqlparam = [type, querycount];
         pool.query(recommendWorkSQL, sqlparam, function(error, result) {
             if (error)
                 throw error;
