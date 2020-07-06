@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-let { queryWork, insertWork, queryRankWork, queryRecommendWork, queryMineWork, queryWorkByWorkId, delteWorkByWorkId } = require("../dao/works/works_dao.js"); // 数据库操作
+let { queryWork, insertWork, queryRankWork, queryRecommendWork, queryMineWork, queryWorkByWorkId, delteWorkByWorkId, updateWork } = require("../dao/works/works_dao.js"); // 数据库操作
 
 
 // 获取指定用户信息 get请求
@@ -178,6 +178,33 @@ router.post('/api/add_work', function(req, res, next) {
     };
 
     insertWork(urlParam, function(success) {
+        if (typeof(success) != 'undefined') {
+            let responsedata = {
+                status: 200,
+                message: "作品发布成功",
+                success: true,
+                data: success
+            }
+            res.json(responsedata);
+        }
+    })
+});
+
+//修改
+router.post('/api/update_work', function(req, res, next) {
+    // title, type, subtype, tags, content, image
+    let urlParam = {
+        uid: parseInt(req.body.uid),
+        title: req.body.title,
+        type: req.body.type,
+        subtype: req.body.subtype,
+        tags: req.body.tags,
+        content: req.body.content,
+        image: req.body.image,
+        description: req.body.description,
+        workid: req.body.workid,
+    };
+    updateWork(urlParam, function(success) {
         if (typeof(success) != 'undefined') {
             let responsedata = {
                 status: 200,

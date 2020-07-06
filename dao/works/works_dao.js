@@ -1,5 +1,5 @@
 let { pool } = require("../../conf/mysqlConf.js")
-let { queryWorkSQL, insertWorkSQL, rankWorkSQL, recommendWorkSQL, mineWorkSQL, queryWorkByWorkIdSQL, delteWorkByWorkIdSQL } = require('./work_sql.js')
+let { queryWorkSQL, insertWorkSQL, rankWorkSQL, recommendWorkSQL, mineWorkSQL, queryWorkByWorkIdSQL, delteWorkByWorkIdSQL, updateWorkByWorkIdSQL } = require('./work_sql.js')
 
 module.exports = {
     queryWork: function(params, callback) { // 查询 createtime
@@ -78,6 +78,26 @@ module.exports = {
         pool.query(insertWorkSQL, sqlparam, function(error, result) {
             if (error)
                 throw error;
+            callback(result);
+        });
+    },
+
+    updateWork: function(work, callback) { // work表中修改操作
+        let sqlparam = [
+            work.title ? work.title : "",
+            work.type ? work.type : "",
+            work.subtype ? work.subtype : "",
+            work.tags ? work.tags : "",
+            work.content ? work.content : "",
+            work.image ? work.image : "",
+            work.description ? work.description : "",
+            work.workid ? work.workid : "",
+        ];
+        pool.query(updateWorkByWorkIdSQL, sqlparam, function(error, result) {
+            if (error) {
+                console.log('throw', error);
+                throw error;
+            }
             callback(result);
         });
     },
