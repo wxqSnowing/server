@@ -8,6 +8,6 @@ module.exports = {
     insertWorkSQL: "insert into work_info (uid, title, type, subtype, tags, content, image, description) values (?, ?, ?, ?, ?, ?, ?, ?);",
     queryWorkByWorkIdSQL: "select * from work_info where workid = ?;",
     delteWorkByWorkIdSQL: "delete from work_info where workid = ?;",
-    updateWorkByWorkIdSQL: "update work_info set title=?, type=?, subtype=?, tags=?, content=?, image=?, description=? where workid = ?"
-
+    updateWorkByWorkIdSQL: "update work_info set title=?, type=?, subtype=?, tags=?, content=?, image=?, description=? where workid = ?",
+    updateWorkViewNumsSQL: "update work_info set viewnums=viewnums+1 where workid=?",
 }
