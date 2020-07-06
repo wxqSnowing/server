@@ -51,7 +51,6 @@ router.get('/api/login', function(req, res, next) {
 
 // 获取指定用户信息 get请求
 router.post('/api/add_user', function(req, res, next) {
-    console.log(req, '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`');
 
     let urlParam = {
         username: req.body.username,
@@ -60,7 +59,6 @@ router.post('/api/add_user', function(req, res, next) {
         mobile: req.body.mobile,
 
     };
-    console.log('-------', req.query, '-------');
 
     addUser(urlParam, function(success) {
         console.log(success)
@@ -77,7 +75,7 @@ router.post('/api/add_user', function(req, res, next) {
 });
 
 // 获取指定用户信息 get请求
-router.put('/api/update_user_pwd', function(req, res, next) {
+router.post('/api/update_user_pwd', function(req, res, next) {
     let urlParam = {
         pwd: req.query.pwd,
         uid: req.query.uid
@@ -97,26 +95,20 @@ router.put('/api/update_user_pwd', function(req, res, next) {
 });
 
 
-// 获取指定用户信息 get请求
-router.put('/api/update_user_basic_info', function(req, res, next) {
+// 修改用户的基本信息
+router.post('/api/update_user_basic_info', function(req, res, next) {
     let urlParam = {
-        username: req.query.username,
-        age: req.query.age,
-        major: req.query.major,
-        avatar: req.query.avatar,
-        constellatory: req.query.constellatory,
-        hobby: req.query.hobby,
-        autograph: req.query.autograph,
-        address: req.query.address,
-        email: req.query.email,
-        mobile: req.query.mobile,
-        tags: req.query.tags,
-        gender: req.query.gender,
-        level: req.query.level,
-        activity: req.query.activity,
-        usercircle: req.query.usercircle,
-        uid: req.query.uid,
+        username: req.body.username,
+        hobby: req.body.hobby,
+        major: req.body.major,
+        constellatory: req.body.constellatory,
+        email: req.body.email,
+        mobile: req.body.mobile,
+        address: req.body.address,
+        autograph: req.body.autograph,
+        uid: req.body.uid,
     };
+    console.log('-------', urlParam);
     updateUserBasicInfo(urlParam, function(success) {
         if (typeof(success) != 'undefined') {
             let responsedata = {

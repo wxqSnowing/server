@@ -67,7 +67,6 @@ router.get('/api/delte_work_by_id', function(req, res, next) {
     delteWorkByWorkId(urlParam, function(success) {
         if (typeof(success) != 'undefined') {
             let value = JSON.parse(JSON.stringify(success));
-            console.log('~~~~~~~~~~~~~~~', value);
             let responsedata = {
                 status: 200,
                 message: "数据删除成功",

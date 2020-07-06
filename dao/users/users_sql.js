@@ -5,5 +5,5 @@ module.exports = {
     addUserSQL: "insert into user_info (username, pwd, email, mobile) value (?, ?, ?, ?);",
     updateUserPwdSQL: "update user_info set pwd = ? where uid = ?;",
     loginUserCheckSQL: "select * from user_info where username = ? and pwd = ?;",
-    updateUserBasicInfoSQL: "update user_info set username = ?, age = ?, major = ?, avatar = ?, constellatory = ?, hobby = ?, autograph = ?, address = ?, email = ? , mobile = ?, tags = ?, gender = ?, level = ?, activity = ?, usercircle = ? where uid = ?;",
+    updateUserBasicInfoSQL: "update user_info set username = ?, hobby = ?, major = ?, constellatory = ?, email = ?, mobile = ?, address = ?, autograph = ? where uid = ?;",
 }

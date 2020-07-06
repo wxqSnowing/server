@@ -53,20 +53,13 @@ module.exports = {
     updateUserBasicInfo: function(params, callback) { // users表中查询指定user操作
         let sqlparam = [
             params.username ? params.username : '',
-            params.age ? params.age : 0,
-            params.major ? params.major : '',
-            params.avatar ? params.avatar : '',
-            params.constellatory ? params.constellatory : '',
             params.hobby ? params.hobby : '',
-            params.autograph ? params.autograph : '',
-            params.address ? params.address : '',
+            params.major ? params.major : '',
+            params.constellatory ? params.constellatory : '',
             params.email ? params.email : '',
             params.mobile ? params.mobile : '',
-            params.tags ? params.tags : '',
-            params.gender ? rparams.gender : 'female',
-            params.level ? params.level : '',
-            params.activity ? params.activity : '',
-            params.usercircle ? params.usercircle : '',
+            params.address ? params.address : '',
+            params.autograph ? params.autograph : '',
             params.uid ? params.uid : 0,
         ];
         pool.query(updateUserBasicInfoSQL, sqlparam, function(error, result) {
